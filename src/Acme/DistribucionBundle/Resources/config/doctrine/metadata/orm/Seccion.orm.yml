@@ -1,0 +1,35 @@
+Seccion:
+    type: entity
+    table: Seccion
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        codigo:
+            type: string
+            length: 50
+            fixed: false
+            nullable: false
+        ubicacion:
+            type: text
+            nullable: false
+        cantidadEspacio:
+            type: integer
+            unsigned: false
+            nullable: false
+            column: cantidad_espacio
+    manyToOne:
+        idInstalacion:
+            targetEntity: Instalacion
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_instalacion:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

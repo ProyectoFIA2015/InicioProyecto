@@ -1,0 +1,30 @@
+instalacion:
+    path:     /
+    defaults: { _controller: "AcmeDistribucionBundle:Instalacion:index" }
+
+instalacion_show:
+    path:     /{id}/show
+    defaults: { _controller: "AcmeDistribucionBundle:Instalacion:show" }
+
+instalacion_new:
+    path:     /new
+    defaults: { _controller: "AcmeDistribucionBundle:Instalacion:new" }
+
+instalacion_create:
+    path:     /create
+    defaults: { _controller: "AcmeDistribucionBundle:Instalacion:create" }
+    requirements: { _method: post }
+
+instalacion_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AcmeDistribucionBundle:Instalacion:edit" }
+
+instalacion_update:
+    path:     /{id}/update
+    defaults: { _controller: "AcmeDistribucionBundle:Instalacion:update" }
+    requirements: { _method: post|put }
+
+instalacion_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AcmeDistribucionBundle:Instalacion:delete" }
+    requirements: { _method: post|delete }

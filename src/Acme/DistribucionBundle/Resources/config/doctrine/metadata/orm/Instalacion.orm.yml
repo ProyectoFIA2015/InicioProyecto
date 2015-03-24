@@ -1,0 +1,25 @@
+Instalacion:
+    type: entity
+    table: Instalacion
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        codigo:
+            type: string
+            length: 50
+            fixed: false
+            nullable: false
+        ubicacion:
+            type: text
+            nullable: false
+        cantidadSecciones:
+            type: integer
+            unsigned: false
+            nullable: false
+            column: cantidad_secciones
+    lifecycleCallbacks: {  }

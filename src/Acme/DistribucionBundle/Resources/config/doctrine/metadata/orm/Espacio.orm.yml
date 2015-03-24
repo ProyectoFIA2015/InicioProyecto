@@ -1,0 +1,62 @@
+Espacio:
+    type: entity
+    table: Espacio
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        area:
+            type: float
+            nullable: false
+        codigo:
+            type: string
+            length: 20
+            fixed: false
+            nullable: false
+        descripcion:
+            type: text
+            nullable: false
+        tipoproducto:
+            type: string
+            length: 50
+            fixed: false
+            nullable: false
+            column: tipoProducto
+        costosugerido:
+            type: float
+            nullable: false
+            column: costoSugerido
+        estado:
+            type: string
+            length: 50
+            fixed: false
+            nullable: false
+            column: Estado
+        costoreal:
+            type: float
+            nullable: false
+            column: costoReal
+    manyToOne:
+        idSeccion:
+            targetEntity: Seccion
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_seccion:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idCliente:
+            targetEntity: Cliente
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_cliente:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

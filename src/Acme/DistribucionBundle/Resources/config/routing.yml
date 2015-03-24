@@ -1,0 +1,11 @@
+acme_distribucion_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: AcmeDistribucionBundle:Default:index }
+
+AcmeDistribucionBundle_cliente:
+        resource: "@AcmeDistribucionBundle/Resources/config/routing/cliente.yml"
+        prefix:   /cliente
+AcmeDistribucionBundle_instalacion:
+        resource: "@AcmeDistribucionBundle/Resources/config/routing/instalacion.yml"
+        prefix:   /instalacion
+
