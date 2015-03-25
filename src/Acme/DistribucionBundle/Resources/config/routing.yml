@@ -8,4 +8,10 @@ AcmeDistribucionBundle_cliente:
 AcmeDistribucionBundle_instalacion:
         resource: "@AcmeDistribucionBundle/Resources/config/routing/instalacion.yml"
         prefix:   /instalacion
+AcmeDistribucionBundle_seccion:
+        resource: "@AcmeDistribucionBundle/Resources/config/routing/seccion.yml"
+        prefix:   /seccion
+AcmeDistribucionBundle_espacio:
+        resource: "@AcmeDistribucionBundle/Resources/config/routing/espacio.yml"
+        prefix:   /espacio
 

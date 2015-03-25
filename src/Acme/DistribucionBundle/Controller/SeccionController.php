@@ -5,37 +5,37 @@ namespace Acme\DistribucionBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use Acme\DistribucionBundle\Entity\Instalacion;
-use Acme\DistribucionBundle\Form\InstalacionType;
+use Acme\DistribucionBundle\Entity\Seccion;
+use Acme\DistribucionBundle\Form\SeccionType;
 
 /**
- * Instalacion controller.
+ * Seccion controller.
  *
  */
-class InstalacionController extends Controller
+class SeccionController extends Controller
 {
 
     /**
-     * Lists all Instalacion entities.
+     * Lists all Seccion entities.
      *
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('AcmeDistribucionBundle:Instalacion')->findAll();
+        $entities = $em->getRepository('AcmeDistribucionBundle:Seccion')->findAll();
 
-        return $this->render('AcmeDistribucionBundle:Instalacion:index.html.twig', array(
+        return $this->render('AcmeDistribucionBundle:Seccion:index.html.twig', array(
             'entities' => $entities,
         ));
     }
     /**
-     * Creates a new Instalacion entity.
+     * Creates a new Seccion entity.
      *
      */
     public function createAction(Request $request)
     {
-        $entity = new Instalacion();
+        $entity = new Seccion();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -44,26 +44,26 @@ class InstalacionController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('instalacion_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('seccion_show', array('id' => $entity->getId())));
         }
 
-        return $this->render('AcmeDistribucionBundle:Instalacion:new.html.twig', array(
+        return $this->render('AcmeDistribucionBundle:Seccion:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
     }
 
     /**
-     * Creates a form to create a Instalacion entity.
+     * Creates a form to create a Seccion entity.
      *
-     * @param Instalacion $entity The entity
+     * @param Seccion $entity The entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createCreateForm(Instalacion $entity)
+    private function createCreateForm(Seccion $entity)
     {
-        $form = $this->createForm(new InstalacionType(), $entity, array(
-            'action' => $this->generateUrl('instalacion_create'),
+        $form = $this->createForm(new SeccionType(), $entity, array(
+            'action' => $this->generateUrl('seccion_create'),
             'method' => 'POST',
         ));
 
@@ -73,60 +73,60 @@ class InstalacionController extends Controller
     }
 
     /**
-     * Displays a form to create a new Instalacion entity.
+     * Displays a form to create a new Seccion entity.
      *
      */
     public function newAction()
     {
-        $entity = new Instalacion();
+        $entity = new Seccion();
         $form   = $this->createCreateForm($entity);
 
-        return $this->render('AcmeDistribucionBundle:Instalacion:new.html.twig', array(
+        return $this->render('AcmeDistribucionBundle:Seccion:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
     }
 
     /**
-     * Finds and displays a Instalacion entity.
+     * Finds and displays a Seccion entity.
      *
      */
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('AcmeDistribucionBundle:Instalacion')->find($id);
+        $entity = $em->getRepository('AcmeDistribucionBundle:Seccion')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Instalacion entity.');
+            throw $this->createNotFoundException('Unable to find Seccion entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('AcmeDistribucionBundle:Instalacion:show.html.twig', array(
+        return $this->render('AcmeDistribucionBundle:Seccion:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-     * Displays a form to edit an existing Instalacion entity.
+     * Displays a form to edit an existing Seccion entity.
      *
      */
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('AcmeDistribucionBundle:Instalacion')->find($id);
+        $entity = $em->getRepository('AcmeDistribucionBundle:Seccion')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Instalacion entity.');
+            throw $this->createNotFoundException('Unable to find Seccion entity.');
         }
 
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('AcmeDistribucionBundle:Instalacion:edit.html.twig', array(
+        return $this->render('AcmeDistribucionBundle:Seccion:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -134,16 +134,16 @@ class InstalacionController extends Controller
     }
 
     /**
-    * Creates a form to edit a Instalacion entity.
+    * Creates a form to edit a Seccion entity.
     *
-    * @param Instalacion $entity The entity
+    * @param Seccion $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createEditForm(Instalacion $entity)
+    private function createEditForm(Seccion $entity)
     {
-        $form = $this->createForm(new InstalacionType(), $entity, array(
-            'action' => $this->generateUrl('instalacion_update', array('id' => $entity->getId())),
+        $form = $this->createForm(new SeccionType(), $entity, array(
+            'action' => $this->generateUrl('seccion_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -152,17 +152,17 @@ class InstalacionController extends Controller
         return $form;
     }
     /**
-     * Edits an existing Instalacion entity.
+     * Edits an existing Seccion entity.
      *
      */
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('AcmeDistribucionBundle:Instalacion')->find($id);
+        $entity = $em->getRepository('AcmeDistribucionBundle:Seccion')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Instalacion entity.');
+            throw $this->createNotFoundException('Unable to find Seccion entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -172,17 +172,17 @@ class InstalacionController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('instalacion_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('seccion_edit', array('id' => $id)));
         }
 
-        return $this->render('AcmeDistribucionBundle:Instalacion:edit.html.twig', array(
+        return $this->render('AcmeDistribucionBundle:Seccion:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
     /**
-     * Deletes a Instalacion entity.
+     * Deletes a Seccion entity.
      *
      */
     public function deleteAction(Request $request, $id)
@@ -192,21 +192,21 @@ class InstalacionController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('AcmeDistribucionBundle:Instalacion')->find($id);
+            $entity = $em->getRepository('AcmeDistribucionBundle:Seccion')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Instalacion entity.');
+                throw $this->createNotFoundException('Unable to find Seccion entity.');
             }
 
             $em->remove($entity);
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('instalacion'));
+        return $this->redirect($this->generateUrl('seccion'));
     }
 
     /**
-     * Creates a form to delete a Instalacion entity by id.
+     * Creates a form to delete a Seccion entity by id.
      *
      * @param mixed $id The entity id
      *
@@ -215,7 +215,7 @@ class InstalacionController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('instalacion_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('seccion_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()

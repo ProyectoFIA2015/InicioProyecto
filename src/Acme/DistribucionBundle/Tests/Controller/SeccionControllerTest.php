@@ -4,7 +4,7 @@ namespace Acme\DistribucionBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class InstalacionControllerTest extends WebTestCase
+class SeccionControllerTest extends WebTestCase
 {
     /*
     public function testCompleteScenario()
@@ -13,13 +13,13 @@ class InstalacionControllerTest extends WebTestCase
         $client = static::createClient();
 
         // Create a new entry in the database
-        $crawler = $client->request('GET', '/instalacion/');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /instalacion/");
+        $crawler = $client->request('GET', '/seccion/');
+        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /seccion/");
         $crawler = $client->click($crawler->selectLink('Create a new entry')->link());
 
         // Fill in the form and submit it
         $form = $crawler->selectButton('Create')->form(array(
-            'acme_distribucionbundle_instalacion[field_name]'  => 'Test',
+            'acme_distribucionbundle_seccion[field_name]'  => 'Test',
             // ... other fields to fill
         ));
 
@@ -33,7 +33,7 @@ class InstalacionControllerTest extends WebTestCase
         $crawler = $client->click($crawler->selectLink('Edit')->link());
 
         $form = $crawler->selectButton('Update')->form(array(
-            'acme_distribucionbundle_instalacion[field_name]'  => 'Foo',
+            'acme_distribucionbundle_seccion[field_name]'  => 'Foo',
             // ... other fields to fill
         ));
 

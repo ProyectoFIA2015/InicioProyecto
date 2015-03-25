@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class InstalacionType extends AbstractType
+class SeccionType extends AbstractType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -17,7 +17,8 @@ class InstalacionType extends AbstractType
         $builder
             ->add('codigo')
             ->add('ubicacion')
-            ->add('cantidadSecciones')
+            ->add('cantidadEspacio')
+            ->add('idInstalacion')
         ;
     }
     
@@ -27,7 +28,7 @@ class InstalacionType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Acme\DistribucionBundle\Entity\Instalacion'
+            'data_class' => 'Acme\DistribucionBundle\Entity\Seccion'
         ));
     }
 
@@ -36,6 +37,6 @@ class InstalacionType extends AbstractType
      */
     public function getName()
     {
-        return 'acme_distribucionbundle_instalacion';
+        return 'acme_distribucionbundle_seccion';
     }
 }

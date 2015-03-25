@@ -1,0 +1,30 @@
+espacio:
+    path:     /
+    defaults: { _controller: "AcmeDistribucionBundle:Espacio:index" }
+
+espacio_show:
+    path:     /{id}/show
+    defaults: { _controller: "AcmeDistribucionBundle:Espacio:show" }
+
+espacio_new:
+    path:     /new
+    defaults: { _controller: "AcmeDistribucionBundle:Espacio:new" }
+
+espacio_create:
+    path:     /create
+    defaults: { _controller: "AcmeDistribucionBundle:Espacio:create" }
+    requirements: { _method: post }
+
+espacio_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AcmeDistribucionBundle:Espacio:edit" }
+
+espacio_update:
+    path:     /{id}/update
+    defaults: { _controller: "AcmeDistribucionBundle:Espacio:update" }
+    requirements: { _method: post|put }
+
+espacio_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AcmeDistribucionBundle:Espacio:delete" }
+    requirements: { _method: post|delete }

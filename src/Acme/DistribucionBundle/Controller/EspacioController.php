@@ -5,37 +5,37 @@ namespace Acme\DistribucionBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use Acme\DistribucionBundle\Entity\Instalacion;
-use Acme\DistribucionBundle\Form\InstalacionType;
+use Acme\DistribucionBundle\Entity\Espacio;
+use Acme\DistribucionBundle\Form\EspacioType;
 
 /**
- * Instalacion controller.
+ * Espacio controller.
  *
  */
-class InstalacionController extends Controller
+class EspacioController extends Controller
 {
 
     /**
-     * Lists all Instalacion entities.
+     * Lists all Espacio entities.
      *
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('AcmeDistribucionBundle:Instalacion')->findAll();
+        $entities = $em->getRepository('AcmeDistribucionBundle:Espacio')->findAll();
 
-        return $this->render('AcmeDistribucionBundle:Instalacion:index.html.twig', array(
+        return $this->render('AcmeDistribucionBundle:Espacio:index.html.twig', array(
             'entities' => $entities,
         ));
     }
     /**
-     * Creates a new Instalacion entity.
+     * Creates a new Espacio entity.
      *
      */
     public function createAction(Request $request)
     {
-        $entity = new Instalacion();
+        $entity = new Espacio();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -44,26 +44,26 @@ class InstalacionController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('instalacion_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('espacio_show', array('id' => $entity->getId())));
         }
 
-        return $this->render('AcmeDistribucionBundle:Instalacion:new.html.twig', array(
+        return $this->render('AcmeDistribucionBundle:Espacio:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
     }
 
     /**
-     * Creates a form to create a Instalacion entity.
+     * Creates a form to create a Espacio entity.
      *
-     * @param Instalacion $entity The entity
+     * @param Espacio $entity The entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createCreateForm(Instalacion $entity)
+    private function createCreateForm(Espacio $entity)
     {
-        $form = $this->createForm(new InstalacionType(), $entity, array(
-            'action' => $this->generateUrl('instalacion_create'),
+        $form = $this->createForm(new EspacioType(), $entity, array(
+            'action' => $this->generateUrl('espacio_create'),
             'method' => 'POST',
         ));
 
@@ -73,60 +73,60 @@ class InstalacionController extends Controller
     }
 
     /**
-     * Displays a form to create a new Instalacion entity.
+     * Displays a form to create a new Espacio entity.
      *
      */
     public function newAction()
     {
-        $entity = new Instalacion();
+        $entity = new Espacio();
         $form   = $this->createCreateForm($entity);
 
-        return $this->render('AcmeDistribucionBundle:Instalacion:new.html.twig', array(
+        return $this->render('AcmeDistribucionBundle:Espacio:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
     }
 
     /**
-     * Finds and displays a Instalacion entity.
+     * Finds and displays a Espacio entity.
      *
      */
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('AcmeDistribucionBundle:Instalacion')->find($id);
+        $entity = $em->getRepository('AcmeDistribucionBundle:Espacio')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Instalacion entity.');
+            throw $this->createNotFoundException('Unable to find Espacio entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('AcmeDistribucionBundle:Instalacion:show.html.twig', array(
+        return $this->render('AcmeDistribucionBundle:Espacio:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-     * Displays a form to edit an existing Instalacion entity.
+     * Displays a form to edit an existing Espacio entity.
      *
      */
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('AcmeDistribucionBundle:Instalacion')->find($id);
+        $entity = $em->getRepository('AcmeDistribucionBundle:Espacio')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Instalacion entity.');
+            throw $this->createNotFoundException('Unable to find Espacio entity.');
         }
 
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('AcmeDistribucionBundle:Instalacion:edit.html.twig', array(
+        return $this->render('AcmeDistribucionBundle:Espacio:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -134,16 +134,16 @@ class InstalacionController extends Controller
     }
 
     /**
-    * Creates a form to edit a Instalacion entity.
+    * Creates a form to edit a Espacio entity.
     *
-    * @param Instalacion $entity The entity
+    * @param Espacio $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createEditForm(Instalacion $entity)
+    private function createEditForm(Espacio $entity)
     {
-        $form = $this->createForm(new InstalacionType(), $entity, array(
-            'action' => $this->generateUrl('instalacion_update', array('id' => $entity->getId())),
+        $form = $this->createForm(new EspacioType(), $entity, array(
+            'action' => $this->generateUrl('espacio_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -152,17 +152,17 @@ class InstalacionController extends Controller
         return $form;
     }
     /**
-     * Edits an existing Instalacion entity.
+     * Edits an existing Espacio entity.
      *
      */
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('AcmeDistribucionBundle:Instalacion')->find($id);
+        $entity = $em->getRepository('AcmeDistribucionBundle:Espacio')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Instalacion entity.');
+            throw $this->createNotFoundException('Unable to find Espacio entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -172,17 +172,17 @@ class InstalacionController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('instalacion_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('espacio_edit', array('id' => $id)));
         }
 
-        return $this->render('AcmeDistribucionBundle:Instalacion:edit.html.twig', array(
+        return $this->render('AcmeDistribucionBundle:Espacio:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
     /**
-     * Deletes a Instalacion entity.
+     * Deletes a Espacio entity.
      *
      */
     public function deleteAction(Request $request, $id)
@@ -192,21 +192,21 @@ class InstalacionController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('AcmeDistribucionBundle:Instalacion')->find($id);
+            $entity = $em->getRepository('AcmeDistribucionBundle:Espacio')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Instalacion entity.');
+                throw $this->createNotFoundException('Unable to find Espacio entity.');
             }
 
             $em->remove($entity);
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('instalacion'));
+        return $this->redirect($this->generateUrl('espacio'));
     }
 
     /**
-     * Creates a form to delete a Instalacion entity by id.
+     * Creates a form to delete a Espacio entity by id.
      *
      * @param mixed $id The entity id
      *
@@ -215,7 +215,7 @@ class InstalacionController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('instalacion_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('espacio_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
