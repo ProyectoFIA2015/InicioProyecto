@@ -143,7 +143,7 @@ class Cliente
     
         return $this;
     }
-
+// este es una muestra para ver si se envia algo
     /**
      * Get dui
      *
