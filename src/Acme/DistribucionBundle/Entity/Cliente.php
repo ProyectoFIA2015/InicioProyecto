@@ -136,6 +136,7 @@ class Cliente
      * @param string $dui
      * @return Cliente
      */
+    //esta funcion retorna un return
     public function setDui($dui)
     {
         $this->dui = $dui;
