@@ -127,7 +127,7 @@ class Cliente
      */
     public function getTelefono()
     {
-        return $this->telefono;
+        return $this->telefono  ;
     }
 
     /**
