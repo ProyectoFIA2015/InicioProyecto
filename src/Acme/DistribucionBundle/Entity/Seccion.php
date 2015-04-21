@@ -155,4 +155,8 @@ class Seccion
     {
         return $this->idInstalacion;
     }
+    
+    public function __toString() {
+        return "Instalacion".$this->id;
+    }
 }
