@@ -1,15 +1,32 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Instalacion creation</h1>
+    <h1>Crear Instalacion</h1>
 
-    {{ form(form) }}
+    {{ form_start(form) }}
+    <center>
+        {{ form_label(form.codigo)}}
+        {{ form_errors(form.codigo) }}
+        {{ form_widget(form.codigo)}}
+    </center>
+    <center>
+        {{ form_label(form.ubicacion)}}
+        {{ form_errors(form.ubicacion) }}
+        {{ form_widget(form.ubicacion)}}
+    </center>
+    <center>
+        Cantidad Secciones
+        {{ form_errors(form.cantidadSecciones) }}
+        {{ form_widget(form.cantidadSecciones)}}
+    </center>
+    <center>{{ form_rest(form) }}</center>
+        {{ form_end(form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('instalacion') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('instalacion') }}">
+                Regresar a la lista
+            </a>
+        </li>
+    </ul>
 {% endblock %}

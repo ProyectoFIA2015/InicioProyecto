@@ -122,4 +122,8 @@ class Instalacion
     {
         return $this->cantidadSecciones;
     }
+    public function __toString(){
+        
+        return "Instalacion  :".$this->codigo;
+    }
 }

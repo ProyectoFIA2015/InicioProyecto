@@ -1,10 +1,11 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Instalacion list</h1>
+    <h1>Lista de Instalaciones</h1>
 
-    <table class="records_list">
+    <table id="example" class="display compact" cellspacing="1" width="100%">
         <thead>
+        <center>
             <tr>
                 <th>Id</th>
                 <th>Codigo</th>
@@ -12,8 +13,13 @@
                 <th>Cantidadsecciones</th>
                 <th>Actions</th>
             </tr>
-        </thead>
-        <tbody>
+        </center>
+
+    </thead>
+    <tbody>
+    <center>
+        
+    </center>
         {% for entity in entities %}
             <tr>
                 <td><a href="{{ path('instalacion_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
@@ -21,25 +27,25 @@
                 <td>{{ entity.ubicacion }}</td>
                 <td>{{ entity.cantidadSecciones }}</td>
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('instalacion_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('instalacion_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
+                    <ul>
+                        <li>
+                            <a href="{{ path('instalacion_show', { 'id': entity.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('instalacion_edit', { 'id': entity.id }) }}">edit</a>
+                        </li>
+                    </ul>
                 </td>
             </tr>
         {% endfor %}
-        </tbody>
-    </table>
+    </tbody>
+</table>
 
-        <ul>
-        <li>
-            <a href="{{ path('instalacion_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
-    {% endblock %}
+<ul>
+    <li>
+        <a href="{{ path('instalacion_new') }}">
+            Crear una instalacion
+        </a>
+    </li>
+</ul>
+{% endblock %}

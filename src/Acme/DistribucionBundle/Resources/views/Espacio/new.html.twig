@@ -1,15 +1,57 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Espacio creation</h1>
+    <h1>Espacio</h1>
+    
+    {{ form_start(form) }}
+    <div class="form-group">
+        <center> {{ form_label(form.area) }}
+            {{ form_errors(form.area)}}
+            {{ form_widget(form.area) }}
+        </center>  
+    </div>
 
-    {{ form(form) }}
+    <center> {{ form_label(form.codigo) }}
+        {{ form_errors(form.codigo)}}
+        {{ form_widget(form.codigo) }}
+    </center> 
+    <center> {{ form_label(form.descripcion) }}
+        {{ form_errors(form.descripcion)}}
+        {{ form_widget(form.descripcion) }}
+    </center> 
+    <center> Tipo Producto
+        {{ form_errors(form.tipoproducto)}}
+        {{ form_widget(form.tipoproducto) }}
+    </center> 
+    <center> Costo Sugerido
+        {{ form_errors(form.costosugerido)}}
+        {{ form_widget(form.costosugerido) }}
+    </center> 
+    <center>Estado
+        {{ form_errors(form.estado)}}
+        {{ form_widget(form.estado) }}
+    </center>
+    <center>Costo Real
+        {{ form_errors(form.costoreal)}}
+        {{ form_widget(form.costoreal) }}
+    </center> 
+    <center>Id Seccion
+        {{ form_errors(form.idSeccion)}}
+        {{ form_widget(form.idSeccion) }}
+    </center> 
+    <center>Id Cliente
+        {{ form_errors(form.idCliente)}}
+        {{ form_widget(form.idCliente) }}
+    </center>
+    <center>{{ form_rest(form) }}</center>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('espacio') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+    {{ form_end(form) }}
+
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('espacio') }}">
+                Back to the list
+            </a>
+        </li>
+    </ul>
 {% endblock %}

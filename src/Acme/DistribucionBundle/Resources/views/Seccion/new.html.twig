@@ -3,7 +3,30 @@
 {% block body -%}
     <h1>Seccion creation</h1>
 
-    {{ form(form) }}
+      {{ form_start(form) }}
+      <center>
+        {{ form_label(form.codigo)}}
+        {{ form_errors(form.codigo) }}
+        {{ form_widget(form.codigo)}}
+    </center>
+    <center>
+        {{ form_label(form.ubicacion)}}
+        {{ form_errors(form.ubicacion) }}
+        {{ form_widget(form.ubicacion)}}
+    </center>
+    <center>
+        Cantidad Espacio
+        {{ form_errors(form.cantidadEspacio) }}
+        {{ form_widget(form.cantidadEspacio)}}
+    </center>
+    <center>
+        Id Instalacion
+        {{ form_errors(form.idInstalacion) }}
+        {{ form_widget(form.idInstalacion)}}
+    </center>
+    <center>{{ form_rest(form) }}</center>
+      {{ form_end(form) }}
+      
 
         <ul class="record_actions">
     <li>

@@ -1,9 +1,10 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Cliente list</h1>
+    <h1> Lista de Clientes</h1>
 
-    <table class="records_list">
+
+    <table id="example" class="display compact" cellspacing="0" width="100%">
         <thead>
             <tr>
                 <th>Id</th>
@@ -14,34 +15,38 @@
                 <th>Actions</th>
             </tr>
         </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('cliente_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.nombreEncargo }}</td>
-                <td>{{ entity.nombreEmpresa }}</td>
-                <td>{{ entity.telefono }}</td>
-                <td>{{ entity.dui }}</td>
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('cliente_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('cliente_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-                </td>
-            </tr>
-        {% endfor %}
+
+        <tbody >
+            {% for entity in entities %}
+                <tr>
+                    <td><a href="{{ path('cliente_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                    <td>{{ entity.nombreEncargo }}</td>
+                    <td>{{ entity.nombreEmpresa }}</td>
+                    <td>{{ entity.telefono }}</td>
+                    <td>{{ entity.dui }}</td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('cliente_show', { 'id': entity.id }) }}">
+                                    <img src="{{asset('media/css/images/sort_asc.png')}}" />  </a>
+                            </li>
+                            <li>   <a href="{{ path('cliente_edit', { 'id': entity.id }) }}">edit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
         </tbody>
+
     </table>
 
-        <ul>
+    <ul>
         <li>
             <a href="{{ path('cliente_new') }}">
                 Create a new entry
             </a>
         </li>
-    </ul>
-    {% endblock %}
+    </ul> 
+
+
+{% endblock %}

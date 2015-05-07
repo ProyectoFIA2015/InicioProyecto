@@ -97,6 +97,7 @@ class Espacio
      *
      * @return integer 
      */
+ 
     public function getId()
     {
         return $this->id;
@@ -308,4 +309,16 @@ class Espacio
     {
         return $this->idCliente;
     }
+   
+    
+    public function __toString() {
+        $val=$this->idCliente;
+        $val2=$this->idSeccion;
+        return "ID cliente".$val."Id Seccion".$val2 ;
+        
+        
+    }
+    
+   
+    
 }

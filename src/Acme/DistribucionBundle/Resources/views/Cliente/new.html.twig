@@ -3,13 +3,35 @@
 {% block body -%}
     <h1>Cliente creation</h1>
 
-    {{ form(form) }}
+    {{ form_start(form) }}
+    <center>
+        Nombre Encargo
+        {{ form_errors(form.nombreEncargo) }}
+        {{ form_widget(form.nombreEncargo)}}
+    </center>
+    <center>
+       Nombre Empresa
+        {{ form_errors(form.nombreEmpresa) }}
+        {{ form_widget(form.nombreEmpresa)}}
+    </center>
+    <center>
+       Telefono
+        {{ form_errors(form.telefono) }}
+        {{ form_widget(form.telefono)}}
+    </center>
+    <center>
+       Dui
+        {{ form_errors(form.dui) }}
+        {{ form_widget(form.dui)}}
+    </center>
+    <center>{{ form_rest(form) }}</center>
+    {{ form_end(form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('cliente') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('cliente') }}">
+                Back to the list
+            </a>
+        </li>
+    </ul>
 {% endblock %}

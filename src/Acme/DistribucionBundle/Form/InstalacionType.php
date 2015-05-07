@@ -6,26 +6,24 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class InstalacionType extends AbstractType
-{
-        /**
+class InstalacionType extends AbstractType {
+
+    /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
-    public function buildForm(FormBuilderInterface $builder, array $options)
-    {
+    public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
-            ->add('codigo')
-            ->add('ubicacion')
-            ->add('cantidadSecciones')
+                ->add('codigo')
+                ->add('ubicacion')
+                ->add('cantidadSecciones')
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
-    {
+    public function setDefaultOptions(OptionsResolverInterface $resolver) {
         $resolver->setDefaults(array(
             'data_class' => 'Acme\DistribucionBundle\Entity\Instalacion'
         ));
@@ -34,8 +32,8 @@ class InstalacionType extends AbstractType
     /**
      * @return string
      */
-    public function getName()
-    {
+    public function getName() {
         return 'acme_distribucionbundle_instalacion';
     }
+
 }

@@ -153,4 +153,8 @@ class Cliente
     {
         return $this->dui;
     }
+    public function __toString() {
+        return "Cliente".$this->id;
+        
+    }
 }
